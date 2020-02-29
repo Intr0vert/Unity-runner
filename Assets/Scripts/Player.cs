@@ -16,6 +16,25 @@ public class Player : MonoBehaviour
 
 	public int health = 3;
 
+	public GameObject effect;
+	public Animator animator;
+
+	public void Start()
+	{
+		animator.SetFloat("Speed", 0f);
+
+		targetPos = new Vector2(
+			-4.5f,
+			0f
+			);
+	
+		transform.position = Vector2.MoveTowards(
+			transform.position, 
+			targetPos,
+			speed * Time.deltaTime
+		);
+	}
+
     private void Update()
     {
 
@@ -23,28 +42,30 @@ public class Player : MonoBehaviour
     		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     	}
 
-    	transform.position = Vector2.MoveTowards(
-    		transform.position, 
-    		targetPos,
-    		speed * Time.deltaTime
-    		);
-
 		if (
 			Input.GetKeyDown(KeyCode.UpArrow) &&
 			transform.position.y < maxHeight
 			) {
+			Instantiate(effect, transform.position, Quaternion.identity);
 			targetPos = new Vector2(
-				transform.position.x, 
+				-4.5f, 
 				transform.position.y + Yincrement
 				);
 		} else if (
 			Input.GetKeyDown(KeyCode.DownArrow) &&
 			transform.position.y > minHeight
 			) {
+			Instantiate(effect, transform.position, Quaternion.identity);
 			targetPos = new Vector2(
-				transform.position.x, 
+				-4.5f, 
 				transform.position.y - Yincrement
 				);
 		}
+
+    	transform.position = Vector2.MoveTowards(
+    		transform.position, 
+    		targetPos,
+    		speed * Time.deltaTime
+    		);
     }
 }
