@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 		animator.SetFloat("Speed", 0f);
 
 		targetPos = new Vector2(
-			-4.5f,
+			-4f,
 			0f
 			);
 	
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 			) {
 			Instantiate(effect, transform.position, Quaternion.identity);
 			targetPos = new Vector2(
-				-4.5f, 
+				-4f,
 				transform.position.y + Yincrement
 				);
 		} else if (
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 			) {
 			Instantiate(effect, transform.position, Quaternion.identity);
 			targetPos = new Vector2(
-				-4.5f, 
+				-4f,
 				transform.position.y - Yincrement
 				);
 		}

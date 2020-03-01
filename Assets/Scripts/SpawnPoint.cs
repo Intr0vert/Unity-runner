@@ -11,8 +11,8 @@ public class SpawnPoint : MonoBehaviour
 		Instantiate(obstacle, transform.position, Quaternion.identity);
 	}
 
-    void Update()
-    {
+    // void Update()
+    // {
         
-    }
+    // }
 }
